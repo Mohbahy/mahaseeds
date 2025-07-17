@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAHA TECH SEEDS - Aurora Adventure</title>
+    <link rel="icon" type="image/x-icon" href="mahalogoh.jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #ffd700; /* Yellow background for main content */
+        }
+
+        .header-container {
+            background-color: #201A3C; /* Purple color for entire header */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-top {
+            height: 60px; /* Thinner top section */
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .header-main {
+            height: 90px; /* Main section below top */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 10%;
+            height: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start; /* Align items to the top */
+            padding: 0;
+        }
+
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 5px 10px; /* Reduced padding to accommodate icon at top */
+            display: flex;
+            flex-direction: column; /* Stack icon and text vertically */
+            align-items: center;
+        }
+
+        .nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-item::before {
+            content: attr(data-icon);
+            margin-bottom: 5px; /* Space between icon and text */
+            font-size: 20px; /* Slightly larger icon for visibility */
+        }
+
+        .search-shop {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-shop button {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-shop button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hamburger-menu {
+            background: none;
+            border: none;
+            color: #fff; /* White hamburger icon */
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none; /* Hidden on larger screens */
+            padding: 10px;
+        }
+
+        /* Main Content */
+        .main-content {
+            position: relative;
+            padding: 20px;
+            text-align: center;
+            min-height: calc(100vh - 150px - 150px); /* Adjust for header, footer, and sub-footer height */
+            background-color: #ffd700; /* Yellow background for main content, excluding cards */
+        }
+
+        .penguin-section {
+            position: relative;
+            z-index: 2;
+            background-color: #ffd700;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 0 auto 20px; /* Add margin below penguin section */
+            max-width: 800px;
+        }
+
+        .penguin-title {
+            background-color: #90ee90; /* Light green */
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .penguin-image {
+            max-width: 70%;
+            height: auto;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+
+        }
+        .penguin-image:hover{
+            transform: scale(1.1);
+        }
+        .party-animals {
+            color: #800080; /* Purple to match header */
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .content {
+            position: relative;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            background-image: url('https://www.w3schools.com/howto/img_lights_wide.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        .card {
+            position: relative;
+            z-index: 2; /* Ensure cards are above the background */
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white for better contrast */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 25%;
+            height: 40%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100%;
+            height: 70%;
+            object-fit: cover;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+
+        }
+        .card:hover img {
+            transform: scale(1.05);
+        }
+        .card h2 {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #201A3C; /* Same purple color as header */
+            padding: 1rem 0;
+            text-align: center;
+            color: #fff; /* White text for footer */
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-icons a {
+            color: #fff; /* White social icon color */
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+            display: inline-block; /* To apply transform properly */
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2); /* Scale up on hover */
+            color: #ddd; /* Slightly grey on hover for social icons */
+            opacity: 0.8; /* Slight fade effect on hover */
+        }
+
+        /* Sub-Footer Styles */
+        .sub-footer {
+            background-color: #f5f5f5; /* Light gray background for sub-footer */
+            padding: 1rem 0;
+            border-top: 2px solid #e0e0e0; /* Light gray border */
+            color: #333;
+            font-size: 1rem; /* Increased for better readability */
+        }
+
+        .sub-footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 0 20px;
+        }
+
+        .sub-footer-column {
+            flex: 1;
+            min-width: 200px;
+            text-align: center
+        }
+
+        .sub-footer-column h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .sub-footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sub-footer-column ul li {
+            margin-bottom: 0.3rem;
+        }
+
+        .sub-footer-column ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .sub-footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .ng-logo {
+            max-width: 150px;
+            height: auto;
+            margin: 1rem auto;
+            display: block;
+        }
+
+        .copyright {
+            font-size: 0.9rem; /* Increased for better readability */
+            color: #666;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        /* Responsive Design for Sub-Footer and Footer */
+        @media (max-width: 768px) {
+            .sub-footer-container {
+                flex-direction: column;
+                text-align: center;
+                padding: 0 10px;
+            }
+
+            .sub-footer-column {
+                min-width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .ng-logo {
+                max-width: 100px;
+            }
+
+            .footer-content {
+                padding: 0 10px;
+            }
+
+            .social-icons {
+                gap: 1rem;
+            }
+        }
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.games-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #ff7f50, #ff69b4); /* Orange to pink gradient */
+    padding: 20px;
+    height: 400px; /* Adjust height as needed */
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.banner-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #000;
+    padding-left: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.banner-left h1 {
+    font-size: 2.5em;
+    margin: 0 0 10px;
+    font-weight: bold;
+}
+
+.banner-left button.see-all-games {
+    background-color: #ffd700; /* Yellow button */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.banner-left button.see-all-games:hover {
+    background-color: #e6c200; /* Darker yellow on hover */
+}
+
+.banner-left p {
+    font-size: 1.2em;
+    margin: 0;
+    color: #ff4500; /* Orange-red text for question marks */
+    font-weight: bold;
+}
+
+/* Question mark decorations */
+.games-banner::before {
+    content: "?";
+    position: absolute;
+    color: #ff4500;
+    font-size: 2em;
+    font-weight: bold;
+    opacity: 0.5;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+}
+
+.games-banner::after {
+    content: "?";
+    position: absolute;
+    color: #ff4500;
+    font-size: 2em;
+    font-weight: bold;
+    opacity: 0.5;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1;
+}
+
+/* Owl image styling */
+.owl-image {
+    max-width: 200px;
+    height: auto;
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+    border-radius: 25px;
+    }
+.owl-image:hover{
+    transform: scale(1.1);
+    }
+
+.banner-right {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.game-card {
+    text-align: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    height: 70%;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+ }
+.game-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.game-card img.game-image {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+.game-card:hover img{
+    transform: scale(1.05);
+        }
+
+.game-card h3 {
+    font-size: 1.1em;
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+.game-card p {
+    font-size: 0.9em;
+    margin: 0;
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .games-banner {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+    }
+
+    .banner-left, .banner-right {
+        width: 100%;
+        padding: 0;
+    }
+
+    .banner-left {
+        align-items: center;
+        text-align: center;
+    }
+
+    .banner-left h1 {
+        font-size: 2em;
+    }
+
+    .banner-left button.see-all-games {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+
+    .banner-left p {
+        font-size: 1em;
+    }
+
+    .owl-image {
+        max-width: 200px;
+        margin-top: 15px;
+    }
+
+    .banner-right {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .game-card {
+        width: 80%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .game-card img.game-image {
+        height: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-left h1 {
+        font-size: 1.5em;
+    }
+
+    .banner-left button.see-all-games {
+        font-size: 0.8em;
+        padding: 6px 12px;
+    }
+
+    .banner-left p {
+        font-size: 0.9em;
+    }
+
+    .owl-image {
+        max-width: 150px;
+    }
+
+    .game-card {
+        width: 90%;
+        padding: 8px;
+    }
+
+    .game-card h3 {
+        font-size: 1em;
+    }
+
+    .game-card p {
+        font-size: 0.8em;
+    }
+}
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .header-top {
+                height: 50px;
+                padding: 0 15px;
+            }
+
+            .header-main {
+                height: 80px;
+                padding: 0 15px;
+            }
+
+            .logo img {
+                width: 35%; /* Slightly larger logo on tablets */
+            }
+
+            .nav-menu {
+                gap: 15px;
+            }
+
+            .nav-item {
+                font-size: 14px;
+                padding: 3px 8px;
+            }
+
+            .penguin-section {
+                max-width: 700px;
+            }
+
+            .card {
+                width: 30%;
+                height: 35%;
+            }
+
+            .social-icons a {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                height: 40px;
+                padding: 0 10px;
+            }
+
+            .header-main {
+                height: 70px;
+                padding: 0 10px;
+            }
+
+            .logo img {
+                width: 40%; /* Larger logo on mobile */
+            }
+
+            .nav-menu {
+                display: none; /* Hide nav menu on mobile by default */
+                flex-direction: column;
+                position: absolute;
+                top: 100px;
+                left: 0;
+                right: 0;
+                background-color: #201A3C; /* Match header color */
+                padding: 20px;
+                gap: 15px;
+            }
+
+            .nav-menu.active {
+                display: flex; /* Show nav menu when active */
+            }
+
+            .nav-item {
+                width: 100%;
+                text-align: center;
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .hamburger-menu {
+                display: block; /* Show hamburger menu on mobile */
+                position: absolute;
+                top: 15px;
+                right: 10px;
+            }
+
+            .search-shop button {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+
+            .penguin-section {
+                max-width: 600px;
+                padding: 15px;
+            }
+
+            .penguin-title {
+                font-size: 20px;
+            }
+
+            .party-animals {
+                font-size: 16px;
+            }
+
+            .content {
+                flex-direction: column; /* Stack cards vertically on mobile */
+                gap: 20px;
+            }
+
+            .card {
+                width: 70%;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-top {
+                height: 35px;
+            }
+
+            .header-main {
+                height: 60px;
+            }
+
+            .logo img {
+                width: 50%; /* Even larger logo on very small screens */
+            }
+
+            .search-shop button {
+                padding: 6px 12px;
+                font-size: 10px;
+            }
+
+            .nav-item {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .penguin-section {
+                max-width: 90%; /* Full width on very small screens */
+                padding: 10px;
+            }
+
+            .penguin-title {
+                font-size: 18px;
+            }
+
+            .party-animals {
+                font-size: 14px;
+            }
+
+            .content {
+                padding: 10px;
+                gap: 15px;
+            }
+
+            .card {
+                width: 90%; /* Full width on very small screens */
+                height: auto;
+                padding: 15px;
+            }
+
+            .social-icons a {
+                font-size: 1.2rem;
+            }
+        }
+        /* Who We Are Section Styles */
+        .who-we-are-section {
+            padding: 60px 0;
+            background-color: #e6c200; /* White for Who We Are section */
+        }
+        .containerwwr {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .containerwwr h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: #800080; /* Violet for headings */
+        }
+        .card-containerwwr {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 2rem;
+            flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+        }
+
+        .cardwwr {
+            background-color: #f0f0f0; /* Light grey for card background on white page */
+            border-radius: 25px;
+            padding: 30px;
+            text-align: center;
+            flex: 1 1 300px; /* Flex basis, grow and shrink */
+            min-width: 250px; /* Minimum width for cards */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cardwwr i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #800080; /* Violet for icon color in cards */
+        }
+        
+        .cardwwr h3 {
+            margin-bottom: 1rem;
+            color: #333; /* Dark card title text */
+        }
+
+        .cardwwr p {
+            color: #555; /* Darker card paragraph text */
+        }
+
+        .cardwwr:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Lighter shadow for white background */
+        }
+
+        /* Pricing Card Styles */
+.pricing-card h2 {
+    color: #4b0082;
+}
+
+.pricing-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.pricing-card .price {
+    font-size: 24px;
+    color: #4b0082;
+    margin: 10px 0;
+}
+
+.pricing-card ul {
+    list-style-type: none;
+    padding: 0;
+    color: #666;
+}
+
+.pricing-card ul li {
+    margin: 10px 0;
+}
+
+.pricing-card button {
+    background-color: #4b0082;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pricing-card button:hover {
+    background-color: #320054;
+}
+
+    </style>
+</head>
+<body>
+    <header class="header-container" role="banner">
+        <div class="header-top">
+            <div class="search-shop">
+                <button>
+                    <span>🔍</span> SEARCH
+                </button>
+                <button>
+                    <span>🛒</span> SHOP
+                </button>
+            </div>
+            <button class="hamburger-menu" aria-label="Open navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="header-main">
+            <div class="logo"><img src="mahalogoh.jpeg" alt="MAHA TECH SEEDS Logo" class="penguin-image"></div>
+            <nav class="nav-menu" role="navigation">
+                <a href="#" class="nav-item" data-icon="🎮" aria-label="Games section">GAMES</a>
+                <a href="#" class="nav-item" data-icon="▶️" aria-label="Videos section">VIDEOS</a>
+                <a href="#" class="nav-item" data-icon="🐾" aria-label="Animals section">ANIMALS</a>
+                <a href="#" class="nav-item" data-icon="🔍" aria-label="Explore more section">EXPLORE MORE</a>
+                <a href="#" class="nav-item" data-icon="📩" aria-label="Subscribe section">SUBSCRIBE</a>
+            </nav>
+        </div>
+    </header>
+    <main class="main-content" role="main">
+        <section class="penguin-section">
+            <h1 class="penguin-title">MAHA TECH SEEDS</h1>
+            <img src="mahalogo.jpeg" alt="MAHA TECH SEEDS Penguin" class="penguin-image" loading="lazy">
+            <p class="party-animals">Welcome to MAHA TECH SEEDS! We're on a mission to make learning AI fun and accessible for kids. Join us on an Aurora Adventure to explore the world of AI through games, stories, and real-world examples.</p>
+                <h2 style="color: #800080;"> Why Learn AI?</h2>
+                <p class="party-animals"> AI is everywhere in kids’ lives (e.g., virtual assistants like Siri and Alexa, recommendation engines on YouTube or Netflix, self-driving cars).
+                
+                It prepares them for future careers in a tech-driven world, fostering skills like problem-solving, critical thinking, and creativity.
+                
+                Helps kids understand how technology works, empowering them to be smart consumers and creators of technology.
+                
+                Emphasize the fun and excitement of AI through games, stories, and real-world examples (e.g., AI art, chatbots, robotics).
+                
+                </p>
+        </section>
+    </main> 
+        <section id="who-we-are" class="who-we-are-section">
+            <div class="containerwwr">
+                <h2>About Us</h2>
+                <div style="display: flex; align-items: center; gap: 20px; justify-content: flex-end;"></div>
+                    <div style="display: flex; align-items: center; gap: 20px; justify-content: flex-end;">
+                        <img src="mahaai6.webp" alt="MAHA TECH SEEDS Logo" class="penguin-image" loading="lazy" style="width: 40%;">
+                        <h3 class="party-animals" style="margin: 0;">At MAHA TECH SEEDS, we believe that every child should have the opportunity to learn about AI in a fun and engaging way. Our AI school for kids is designed to introduce young minds to the fascinating world of artificial intelligence through interactive games, hands-on projects, and real-world examples. We aim to spark curiosity and creativity, helping kids understand how AI works and how it can be used to solve problems and create new opportunities.</h3>
+                        
+                    </div><h2 >Who We Are</h2></div>
+
+                </div>
+                <div class="card-containerwwr">
+                    
+                    <div class="cardwwr">
+                        <i class="fas fa-users"></i>
+                        <h3>Our Team</h3>
+                        <p>Our team is made up of passionate educators, developers, and designers who are dedicated to making AI fun and accessible for kids.</p>
+                        
+                    </div>
+                    <div class="cardwwr">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Our Mission</h3>
+                        <p>Our mission is to inspire kids to learn AI through games, stories, and real-world examples, fostering creativity and critical thinking.</p>
+                    </div>
+                    <div class="cardwwr">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Our Vision</h3>
+                        <p>Our vision is to create a world where every child has the opportunity to learn AI and become a smart consumer and creator of technology.</p>
+                        </div>
+                </div>
+            </div>
+        </section>
+        <div class="content">
+            <div class="card pricing-card">
+                <h2>Beginner</h2>
+                <img src="mahaai.png" alt="Turkey Card" loading="lazy">
+                <p class="price">$49/month</p>
+            <ul>
+                <li>Introduction to AI</li>
+                <li>Basic Programming Skills</li>
+                <li>Interactive AI Games</li>
+            </ul>
+            <button>Enroll Now</button>
+            </div>
+            <div class="card pricing-card">
+                <h2>Intermediate</h2>
+                <img src="mahaai2.png" alt="Krill Smackdown Card" loading="lazy">
+                <p class="price">$99/month</p>
+                <ul>
+                    <li>Advanced AI Concepts</li>
+                    <li>Project-Based Learning</li>
+                    <li>Mentorship Program</li>
+                </ul>
+                <button>Enroll Now</button>
+                        </div>
+            <div class="card pricing-card">
+                <h2>Advanced</h2>
+                <img src="mahaai3.png" alt="Ramadan Card" loading="lazy">
+                <p class="price">$149/month</p>
+                <ul>
+                    <li>AI Research Projects</li>
+                    <li>AI Competitions</li>
+                    <li>Personalized Coaching</li>
+                </ul>
+                <button>Enroll Now</button>  
+            </div>
+        </div>
+        <section class="games-banner">
+            <div class="banner-left">
+                <h1>PLAY NOW!</h1>
+                <button class="see-all-games">SEE ALL GAMES</button>
+                <p>??? ALL GAMES ???</p>
+                <img src="mahaai4.png" alt="Curious Owl" class="owl-image" loading="lazy">
+            </div>
+            <div class="banner-right">
+                <div class="game-card">
+                    <img src="mahalogo.jpeg" alt="Outdoor Sports Quiz" class="game-image" loading="lazy">
+                    <h3>QUIZ</h3>
+                    <p>Outdoor Sports Quiz</p>
+                </div>
+                <div class="game-card">
+                    <img src="mahalogo.jpeg" alt="Krill Smackdown" class="game-image" loading="lazy">
+                    <h3>ACTION AND ADVENTURE</h3>
+                    <p>Krill Smackdown</p>
+                </div>
+                <div class="game-card">
+                    <img src="mahalogo.jpeg" alt="Matching: Gemstones" class="game-image" loading="lazy">
+                    <h3>PUZZLES</h3>
+                    <p>Matching: Gemstones</p>
+                </div>
+            </div>
+        </section> 
+    <div class="sub-footer" role="contentinfo">
+        <div class="sub-footer-container">
+            <div class="sub-footer-column">
+                <h3>LEGAL</h3>
+                <ul>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Your US State Privacy Rights</a></li>
+                    <li><a href="#">Children's Online Privacy Policy</a></li>
+                    <li><a href="#">Interest-Based Ads</a></li>
+                    <li><a href="#">Do Not Sell or Share My Personal Information</a></li>
+                </ul>
+            </div>
+            <div class="sub-footer-column">
+                <h3>OUR SITES</h3>
+                <ul>
+                    <li><a href="#">MAHA TECH SEEDS</a></li>
+                    <li><a href="#">MAHA TECH SEEDS Education</a></li>
+                    <li><a href="#">Shop </a></li>
+                    <li><a href="#">Customer Service</a></li>
+                </ul>
+            </div>
+            <div class="sub-footer-column">
+                <h3>JOIN US</h3>
+                <ul>
+                    <li><a href="#">Subscribe</a></li>
+                    <li><a href="#">Manage Your Subscription</a></li>
+                </ul>
+            </div>
+        </div>
+        <img src="mahalogoh.jpeg" alt="MAHA TECH SEEDS Logo" class="ng-logo" loading="lazy" style="border-radius: 25px;">
+        <p class="copyright">Copyright © 1996-2015 MAHA TECH SEEDS  | Copyright © 2015-2025 MAHA TECH SEEDS Partners, LLC. All rights reserved.</p>
+    </div>
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle with Error Handling
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (hamburgerMenu && navMenu) {
+                hamburgerMenu.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+            } else {
+                console.warn('Hamburger menu or navigation menu not found.');
+            }
+        });
+    </script>
+</body>
+</html>
